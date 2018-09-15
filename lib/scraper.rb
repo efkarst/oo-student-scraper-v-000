@@ -23,12 +23,14 @@ class Scraper
 
     #Iterate through social icons to grab social links
     doc.css(".main-wrapper .vitals-container .social-icon-container").children.css("a").each do |link|
-      
+      social_profile_name = link.css("img").attribute("src").value.split("/")[-1].split("-")[0]
+      social_profile_link = link.attribute("href").value
+      profile[:social_profile_name] => social_profile_link
 
       #:twitter => link.attribute("href").value
       #image == link.css("img").attribute("src").value
       #social name == image.split("/")[-1].split("-")[0]
-      
+
     end
 
     binding.pry
