@@ -17,8 +17,10 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    
+    html = open(profile_url)
+    doc = Nokogiri::HTML(html)
 
+    binding.pry
     # => {:twitter=>"http://twitter.com/flatironschool",
   #    :linkedin=>"https://www.linkedin.com/in/flatironschool",
   #    :github=>"https://github.com/learn-co,
