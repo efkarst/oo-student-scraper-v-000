@@ -19,10 +19,16 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
+    profile = {}
 
-    doc.css(".main-wrapper .vitals-container .social-icon-container").each do |link|
-      {:twitter => link.children.css("a").attribute("href").value
-      }
+    #Iterate through social icons to grab social links
+    doc.css(".main-wrapper .vitals-container .social-icon-container").children.css("a").each do |link|
+      
+
+      #:twitter => link.attribute("href").value
+      #image == link.css("img").attribute("src").value
+      #social name == image.split("/")[-1].split("-")[0]
+      
     end
 
     binding.pry
