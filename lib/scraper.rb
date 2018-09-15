@@ -21,11 +21,11 @@ class Scraper
     doc = Nokogiri::HTML(html)
 
     doc.css(".main-wrapper .vitals-container .social-icon-container").collect do |link|
-      puts {:twitter => link.children.css("a").attribute("href").value
+      has = {:twitter => link.children.css("a").attribute("href").value
       }
     end
 
-
+    puts has
     binding.pry
     # => {:twitter=>"http://twitter.com/flatironschool",
   #    :linkedin=>"https://www.linkedin.com/in/flatironschool",
