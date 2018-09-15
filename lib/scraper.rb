@@ -20,7 +20,7 @@ class Scraper
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
 
-    doc.css(".main-wrapper .vitals-container .social-icon-container").collect do |link|
+    doc.css(".main-wrapper .vitals-container .social-icon-container").each do |link|
       has = {:twitter => link.children.css("a").attribute("href").value
       }
     end
